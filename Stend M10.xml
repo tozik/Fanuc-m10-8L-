@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<SCCollection>
+	<SCNameSpace ID="MachineRegistrator">
+		<SCType ID="RegStendM10\8L" Type="TRegisterMachineRecord" Enabled="True">
+			<TypeName DefaultValue="StendM10\8L"/>
+		</SCType>
+	</SCNameSpace>
+	<SCType ID="StendM10\8L" Caption="StendM10\8L" Type="FanucRobotTemplate" Enabled="True">
+		<GUID DefaultValue="{418c7d9b-8a9e-4bad-9912-eaa2fc9c3ae8}"/>
+		<Name DefaultValue="StendM10\8L"/>
+ 		<Image DefaultValue="StendM10.jpg"/>
+		<SCType ID="MachineDimensions" Caption="Machine dimensions" Type="ComplexType">
+			<SpindleModelRotationAngleX DefaultValue="0"/>
+			<SpindleModelRotationAngleY DefaultValue="0"/>
+			<SpindleModelRotationAngleZ DefaultValue="0"/>
+			<ToolData Expanded="False">
+				<ToolLength DefaultValue="0"/>
+				<X DefaultValue="0"/>
+				<Y DefaultValue="0"/>
+				<Z DefaultValue="0"/>
+				<W DefaultValue="0"/>
+				<P DefaultValue="0"/>
+				<R DefaultValue="0"/>
+			</ToolData>
+			<RobotSize Enabled="false" Expanded="False">
+				<A12X DefaultValue="150"/>
+				<A12Z DefaultValue="0"/>
+				<A23Z DefaultValue="780"/>
+				<A34Z DefaultValue="200"/>
+				<A35X DefaultValue="1080"/>
+				<A14Y DefaultValue="0"/>
+				<A56X DefaultValue="100"/>
+			</RobotSize>
+			<SCType ID="TableOrigin" Caption="Table origin" Type="ComplexType" Expanded="False">\\расположение стола
+				<SCType ID="X" Type="Double" DefaultValue="0"/>
+				<SCType ID="Y" Type="Double" DefaultValue="0"/>
+				<SCType ID="Z" Type="Double" DefaultValue="0"/>
+				<SCType ID="W" Type="Double" DefaultValue="0"/>
+				<SCType ID="P" Type="Double" DefaultValue="0"/>
+				<SCType ID="R" Type="Double" DefaultValue="0"/>
+			</SCType>
+			<SCType ID="RailsXOrigin" Caption="Rails X origin" Type="ComplexType" Expanded="False">\\расположение оси Х
+				<SCType ID="X" Type="Double" DefaultValue="0"/>
+				<SCType ID="Y" Type="Double" DefaultValue="0"/>
+				<SCType ID="Z" Type="Double" DefaultValue="0"/>
+			</SCType>
+		
+		</SCType>
+		
+		<ControlData>
+		<LocalCS>
+  		   <MoveWCSwithRobotBase DefaultValue="false"/>
+  	    </LocalCS>
+			<Singularities>
+				<Base>
+					<ReferenceType DefaultValue="Linear" IsRadioEdit="True">
+					</ReferenceType>
+					<Linear DefaultValue="180" Visible="False"/>
+				</Base>
+			</Singularities>
+		</ControlData>
+		<MachineStateParameters>
+			<AxisA1Pos>
+				<Min DefaultValue="-170"/>\\maked it diapason less
+				<Max DefaultValue="170"/>
+			</AxisA1Pos>
+			<AxisA2Pos>
+				<Min DefaultValue="-90"/>
+				<Max DefaultValue="135"/>
+			</AxisA2Pos>
+			<AxisA3Pos>
+				<Min DefaultValue="-80"/>
+				<Max DefaultValue="205"/>
+			</AxisA3Pos>
+			<AxisA4Pos>
+				<Min DefaultValue="-360"/>
+				<Max DefaultValue="360"/>
+			</AxisA4Pos>
+			<AxisA5Pos>
+				<Min DefaultValue="-120"/>
+				<Max DefaultValue="120"/>
+			</AxisA5Pos>
+			<AxisA6Pos>
+				<Min DefaultValue="-180"/>
+				<Max DefaultValue="180"/>
+			</AxisA6Pos>
+			<ExtAxis1Pos>
+				<Enabled DefaultValue="True"/>
+				<Address DefaultValue="E1"/>
+				<Min DefaultValue="-90"/>
+				<Max DefaultValue="90"/>
+				<Incr DefaultValue="0.000001"/>
+			</ExtAxis1Pos>
+			<ExtAxis2Pos>
+				<Enabled DefaultValue="True"/>
+				<Address DefaultValue="E2"/>
+				<Min DefaultValue="-90"/>
+				<Max DefaultValue="90"/>
+				<Incr DefaultValue="0.000001"/>
+			</ExtAxis2Pos>
+		</MachineStateParameters>
+	   <Schema>
+	              <ImageFile DefaultValue="Images\RailsFrame.osd"/>
+			<Rails1 Caption="Rails 1">
+				<ImageFile DefaultValue="Images\Rails1.osd"/>
+				<!--ParameterName DefaultValue="ExtAxis1Pos"/-->
+				<Direction>
+					<X DefaultValue="1"/>
+					<Y DefaultValue="0"/>
+					<Z DefaultValue="0"/>
+				</Direction>
+				<Rails2 Caption="Rails 2">
+					<ImageFile DefaultValue="Images\Rails2.osd"/>
+					<!--ParameterName DefaultValue="ExtAxis2Pos"/-->
+					<Direction>
+						<X DefaultValue="0"/>
+						<Y DefaultValue="1"/>
+						<Z DefaultValue="0"/>
+					</Direction>
+					<Rails3 Caption="Rails 3">
+						<ImageFile DefaultValue="Images\Rails3.osd"/>
+						<!--ParameterName DefaultValue="ExtAxis3Pos"/-->
+						<Direction>
+							<X DefaultValue="0"/>
+							<Y DefaultValue="0"/>
+							<Z DefaultValue="1"/>
+						</Direction>
+			<RobotFrame Caption="Robot frame">
+			<ImageFile DefaultValue="Images\Frame.osd"/>
+				<AxisA1>
+				<ImageFile DefaultValue="Images\A1.osd"/>
+					<AxisA2>
+					<ImageFile DefaultValue="Images\A2.osd"/>
+						<AxisA3>
+						<ImageFile DefaultValue="Images\A3.osd"/>
+							<AxisA4>
+							<ImageFile DefaultValue="Images\A4.osd"/>
+								<AxisA5>
+								<ImageFile DefaultValue="Images\A5.osd"/>
+									<AxisA6>
+									<ImageFile DefaultValue="Images\A6.osd"/>
+										<ToolBlockSelector>
+										<ActiveNode DefaultValue="ToolBlock"/>
+										<ToolBlock>
+										<ImageFile DefaultValue="Images\Spyndel2.osd"/>
+										</ToolBlock>
+										</ToolBlockSelector>
+								</AxisA6>
+							</AxisA5>
+						</AxisA4>
+					</AxisA3>
+				</AxisA2>
+			</AxisA1>
+		</RobotFrame>	
+							</Rails3>
+				</Rails2>
+			</Rails1>													
+			<SCType ID="Table" Caption="Table" Type="TMachineNode">
+				<ImageFile DefaultValue="Images\Table.osd"/>
+				<Matrix>
+					<SCType ID="T5" Type="TRotateX" DefaultValue="[MachineDimensions.TableOrigin.W]"/>
+					<SCType ID="T4" Type="TRotateY" DefaultValue="[MachineDimensions.TableOrigin.P]"/>
+					<SCType ID="T6" Type="TRotateZ" DefaultValue="[MachineDimensions.TableOrigin.R]"/>
+					<SCType ID="T3" Type="TTranslateZ" DefaultValue="[MachineDimensions.TableOrigin.Z]"/>
+					<SCType ID="T2" Type="TTranslateY" DefaultValue="[MachineDimensions.TableOrigin.Y]"/>
+					<SCType ID="T1" Type="TTranslateX" DefaultValue="[MachineDimensions.TableOrigin.X]"/>
+				</Matrix>
+				<VisualProperties>
+					<Visible DefaultValue="True"/>
+					<Color>
+					  <R DefaultValue="0/255"/>
+					  <G DefaultValue="49/255"/>
+					  <B DefaultValue="83/255"/>
+					</Color>
+				<VisMatrix>
+					<SCType ID="T0" Type="TTranslateZ" DefaultValue="-1960"/>
+				</VisMatrix>
+				</VisualProperties>				
+				<SCType ID="TableWorkpiece" Caption="Table workpiece" Type="TWorkpieceHolderNode"/>
+			</SCType>
+			
+			<SCType ID="Magasine" Caption="Magasine" Type="TMachineNode">
+				<ImageFile DefaultValue="Images\Instruments shop.osd"/>
+				<Matrix>
+					<SCType ID="T5" Type="TRotateX" DefaultValue="0"/>
+					<SCType ID="T4" Type="TRotateY" DefaultValue="0"/>
+					<SCType ID="T6" Type="TRotateZ" DefaultValue="0"/>
+					<SCType ID="T3" Type="TTranslateZ" DefaultValue="0"/>
+					<SCType ID="T2" Type="TTranslateY" DefaultValue="0"/>
+					<SCType ID="T1" Type="TTranslateX" DefaultValue="0"/>
+				</Matrix>
+				<VisualProperties>
+					<Visible DefaultValue="True"/>
+					<Color>
+					  <R DefaultValue="0/255"/>
+					  <G DefaultValue="49/255"/>
+					  <B DefaultValue="83/255"/>
+					</Color>
+				</VisualProperties>				
+			</SCType>
+			
+		</Schema>
+		<ToolChangeMachineState DefaultValue="A1(0) A2(0) A3(0) A4(0) A5(0) A6(0)"/>
+		<Simulation>
+			<SimulationResolution DefaultValue="srStandard"/>
+			<SimulationMethod DefaultValue="smVoxel5d"/>
+			<GougeDetectionTolerance DefaultValue="1" InchDefaultValue="0.125"/>
+			<CDIgnoreList>
+				<SCArray>
+					<CollisionPair>
+						<Node1>
+							<NodeID>Rails3</NodeID>
+							<WithChildren>False</WithChildren>
+						</Node1>
+						<Node2>
+							<NodeID>Schema</NodeID>
+							<WithChildren>False</WithChildren>
+						</Node2>
+					</CollisionPair>
+				</SCArray>
+			</CDIgnoreList>
+		</Simulation>
+	</SCType>
+</SCCollection>
