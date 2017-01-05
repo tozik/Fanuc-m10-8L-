@@ -102,29 +102,11 @@
 	   <Schema>
 	              <ImageFile DefaultValue="Images\RailsFrame.osd"/>
 			<Rails1 Caption="Rails 1">
-				<ImageFile DefaultValue="Images\Rails1.osd"/>
-				<!--ParameterName DefaultValue="ExtAxis1Pos"/-->
-				<Direction>
-					<X DefaultValue="1"/>
-					<Y DefaultValue="0"/>
-					<Z DefaultValue="0"/>
-				</Direction>
+
 				<Rails2 Caption="Rails 2">
-					<ImageFile DefaultValue="Images\Rails2.osd"/>
-					<!--ParameterName DefaultValue="ExtAxis2Pos"/-->
-					<Direction>
-						<X DefaultValue="0"/>
-						<Y DefaultValue="1"/>
-						<Z DefaultValue="0"/>
-					</Direction>
+		
 					<Rails3 Caption="Rails 3">
-						<ImageFile DefaultValue="Images\Rails3.osd"/>
-						<!--ParameterName DefaultValue="ExtAxis3Pos"/-->
-						<Direction>
-							<X DefaultValue="0"/>
-							<Y DefaultValue="0"/>
-							<Z DefaultValue="1"/>
-						</Direction>
+
 			<RobotFrame Caption="Robot frame">
 			<ImageFile DefaultValue="Images\Frame.osd"/>
 				<AxisA1>
@@ -152,52 +134,82 @@
 				</AxisA2>
 			</AxisA1>
 		</RobotFrame>	
-							</Rails3>
-				</Rails2>
-			</Rails1>													
-			<SCType ID="Table" Caption="Table" Type="TMachineNode">
-				<ImageFile DefaultValue="Images\Table.osd"/>
-				<Matrix>
-					<SCType ID="T5" Type="TRotateX" DefaultValue="[MachineDimensions.TableOrigin.W]"/>
-					<SCType ID="T4" Type="TRotateY" DefaultValue="[MachineDimensions.TableOrigin.P]"/>
-					<SCType ID="T6" Type="TRotateZ" DefaultValue="[MachineDimensions.TableOrigin.R]"/>
-					<SCType ID="T3" Type="TTranslateZ" DefaultValue="[MachineDimensions.TableOrigin.Z]"/>
-					<SCType ID="T2" Type="TTranslateY" DefaultValue="[MachineDimensions.TableOrigin.Y]"/>
-					<SCType ID="T1" Type="TTranslateX" DefaultValue="[MachineDimensions.TableOrigin.X]"/>
-				</Matrix>
+		</Rails3>
+	</Rails2>
+</Rails1>													
+            <SCType ID="Table" Caption="Rotary table" Type="TMachineNode">
+                <Matrix>
+					<SCType ID="T0" Type="TTranslateZ" DefaultValue="[MachineDimensions.BaseData.TableToCrossPoint]"/>
+					<SCType ID="T1" type="TComplexTransformation3d">
+						<Translation>
+							<X DefaultValue="[MachineDimensions.BaseData.X]"/>
+							<Y DefaultValue="[MachineDimensions.BaseData.Y]"/>
+							<Z DefaultValue="[MachineDimensions.BaseData.Z]"/>
+						</Translation>
+						<Rotation>
+							<Convention DefaultValue="EulerZYX"/>
+							<R1 DefaultValue=" [MachineDimensions.BaseData.A]"/>
+							<R2 DefaultValue="-[MachineDimensions.BaseData.B]"/>
+							<R3 DefaultValue="-[MachineDimensions.BaseData.C]"/>
+							<R4 DefaultValue="0"/>
+						</Rotation>
+					</SCType>
+
+                </Matrix>
 				<VisualProperties>
-					<Visible DefaultValue="True"/>
 					<Color>
-					  <R DefaultValue="0/255"/>
-					  <G DefaultValue="49/255"/>
-					  <B DefaultValue="83/255"/>
+						<R DefaultValue="224/255"/>
+						<G DefaultValue="255/255"/>
+						<B DefaultValue="0/255"/>
 					</Color>
-				<VisMatrix>
-					<SCType ID="T0" Type="TTranslateZ" DefaultValue="-1960"/>
-				</VisMatrix>
-				</VisualProperties>				
-				<SCType ID="TableWorkpiece" Caption="Table workpiece" Type="TWorkpieceHolderNode"/>
-			</SCType>
-			
-			<SCType ID="Magasine" Caption="Magasine" Type="TMachineNode">
-				<ImageFile DefaultValue="Images\Instruments shop.osd"/>
-				<Matrix>
-					<SCType ID="T5" Type="TRotateX" DefaultValue="0"/>
-					<SCType ID="T4" Type="TRotateY" DefaultValue="0"/>
-					<SCType ID="T6" Type="TRotateZ" DefaultValue="0"/>
-					<SCType ID="T3" Type="TTranslateZ" DefaultValue="0"/>
-					<SCType ID="T2" Type="TTranslateY" DefaultValue="0"/>
-					<SCType ID="T1" Type="TTranslateX" DefaultValue="0"/>
-				</Matrix>
-				<VisualProperties>
-					<Visible DefaultValue="True"/>
-					<Color>
-					  <R DefaultValue="0/255"/>
-					  <G DefaultValue="49/255"/>
-					  <B DefaultValue="83/255"/>
-					</Color>
-				</VisualProperties>				
-			</SCType>
+					<DisplayMode DefaultValue="Shade"/>
+				</VisualProperties>
+                <ImageFile DefaultValue="Images\E Base.osd"/>
+                <SCType ID="AxisA" Caption="Axis A" Type="TMachineAxis">
+                    <Matrix>
+                        <SCType ID="T1" Type="TRotateY" DefaultValue="90"/>
+					</Matrix>
+                    <VisualProperties>
+                        <Color>
+							<R DefaultValue="255/255"/>
+							<G DefaultValue="255/255"/>
+							<B DefaultValue="0/255"/>
+                        </Color>
+						<DisplayMode DefaultValue="Shade"/>
+                        <VisMatrix>
+							<SCType ID="T1" Type="TRotateY" DefaultValue="-90"/>
+						</VisMatrix>
+                    </VisualProperties>
+                    <ImageFile DefaultValue="Images\E1.osd"/>
+                    <AxisType DefaultValue="Rotary"/>
+                    <Scale DefaultValue="-1"/>
+                    <ParameterName DefaultValue="ExtAxis1Pos"/>
+					<SCType ID="AxisC" Caption="Axis C" Type="TMachineAxis">
+						<Matrix>
+							<SCType ID="T1" Type="TRotateY" DefaultValue="-90"/>
+						</Matrix>
+						<VisualProperties>
+							<Color>
+								<R DefaultValue="100/255"/>
+								<G DefaultValue="100/255"/>
+								<B DefaultValue="100/255"/>
+							</Color>
+							<DisplayMode DefaultValue="Shade"/>
+						</VisualProperties>
+						<ImageFile DefaultValue="Images\E2.osd"/>
+						<AxisType DefaultValue="Rotary"/>
+						<Scale DefaultValue="-1"/>
+						<ParameterName DefaultValue="ExtAxis2Pos"/>
+						<SCType ID="WorkpieceBlock" Caption="WorkpieceBlock" Type="TMachineNode">
+							<Matrix>
+								<SCType ID="T1" Type="TTranslateZ" DefaultValue="[MachineDimensions.TablePos.TableToCrossPoint]"/>
+								<SCType ID="T2" Type="TRotateZ" DefaultValue="-90"/>
+							</Matrix>
+							<SCType ID="Workpiece" Caption="Table Plate" Type="TWorkpieceHolderNode"/>
+						</SCType>
+					</SCType>
+				</SCType>
+            </SCType>
 			
 		</Schema>
 		<ToolChangeMachineState DefaultValue="A1(0) A2(0) A3(0) A4(0) A5(0) A6(0)"/>
