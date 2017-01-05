@@ -15,11 +15,11 @@
 			<SpindleModelRotationAngleZ DefaultValue="0"/>
 			<ToolData Expanded="False">
 				<ToolLength DefaultValue="0"/>
-				<X DefaultValue="0"/>
+				<X DefaultValue="7"/>
 				<Y DefaultValue="0"/>
-				<Z DefaultValue="0"/>
+				<Z DefaultValue="326"/>
 				<W DefaultValue="0"/>
-				<P DefaultValue="0"/>
+				<P DefaultValue="135"/>
 				<R DefaultValue="0"/>
 			</ToolData>
 			<RobotSize Enabled="false" Expanded="False">
@@ -102,49 +102,46 @@
 	   <Schema>
 	              <ImageFile DefaultValue="Images\RailsFrame.osd"/>
 			<Rails1 Caption="Rails 1">
-
 				<Rails2 Caption="Rails 2">
-		
 					<Rails3 Caption="Rails 3">
-
-			<RobotFrame Caption="Robot frame">
-			<ImageFile DefaultValue="Images\Frame.osd"/>
-				<AxisA1>
-				<ImageFile DefaultValue="Images\A1.osd"/>
-					<AxisA2>
-					<ImageFile DefaultValue="Images\A2.osd"/>
-						<AxisA3>
-						<ImageFile DefaultValue="Images\A3.osd"/>
-							<AxisA4>
-							<ImageFile DefaultValue="Images\A4.osd"/>
-								<AxisA5>
-								<ImageFile DefaultValue="Images\A5.osd"/>
-									<AxisA6>
-									<ImageFile DefaultValue="Images\A6.osd"/>
-										<ToolBlockSelector>
-										<ActiveNode DefaultValue="ToolBlock"/>
-										<ToolBlock>
-										<ImageFile DefaultValue="Images\Spyndel2.osd"/>
-										</ToolBlock>
-										</ToolBlockSelector>
-								</AxisA6>
-							</AxisA5>
-						</AxisA4>
-					</AxisA3>
-				</AxisA2>
-			</AxisA1>
-		</RobotFrame>	
-		</Rails3>
-	</Rails2>
-</Rails1>													
+						<RobotFrame Caption="Robot frame">
+						<ImageFile DefaultValue="Images\Frame.osd"/>
+							<AxisA1>
+							<ImageFile DefaultValue="Images\A1.osd"/>
+								<AxisA2>
+								<ImageFile DefaultValue="Images\A2.osd"/>
+									<AxisA3>
+									<ImageFile DefaultValue="Images\A3.osd"/>
+										<AxisA4>
+										<ImageFile DefaultValue="Images\A4.osd"/>
+											<AxisA5>
+											<ImageFile DefaultValue="Images\A5.osd"/>
+												<AxisA6>
+												<ImageFile DefaultValue="Images\A6.osd"/>
+													<ToolBlockSelector>
+														<ActiveNode DefaultValue="ToolBlock"/>
+														<ToolBlock>
+															<ImageFile DefaultValue="Images\Tool.osd"/>
+														</ToolBlock>
+													</ToolBlockSelector>
+											</AxisA6>
+										</AxisA5>
+									</AxisA4>
+								</AxisA3>
+							</AxisA2>
+						</AxisA1>
+					</RobotFrame>	
+				</Rails3>
+			</Rails2>
+		</Rails1>													
             <SCType ID="Table" Caption="Rotary table" Type="TMachineNode">
                 <Matrix>
-					<SCType ID="T0" Type="TTranslateZ" DefaultValue="[MachineDimensions.BaseData.TableToCrossPoint]"/>
+					<SCType ID="T0" Type="TTranslateZ" DefaultValue="[MachineDimensions.E2.TableToCrossPoint]"/>
 					<SCType ID="T1" type="TComplexTransformation3d">
 						<Translation>
-							<X DefaultValue="[MachineDimensions.BaseData.X]"/>
-							<Y DefaultValue="[MachineDimensions.BaseData.Y]"/>
-							<Z DefaultValue="[MachineDimensions.BaseData.Z]"/>
+							<X DefaultValue="[MachineDimensions.E1.X]"/>
+							<Y DefaultValue="[MachineDimensions.E1.Y]"/>
+							<Z DefaultValue="[MachineDimensions.E1.Z]"/>
 						</Translation>
 						<Rotation>
 							<Convention DefaultValue="EulerZYX"/>
