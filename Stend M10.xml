@@ -31,7 +31,7 @@
 				<A14Y DefaultValue="0"/>
 				<A56X DefaultValue="100"/>
 			</RobotSize>
-			<SCType ID="TableOrigin" Caption="Table origin" Type="ComplexType" Expanded="False">\\расположение стола
+			<!--<SCType ID="TableOrigin" Caption="Table origin" Type="ComplexType" Expanded="False">\\расположение стола
 				<SCType ID="X" Type="Double" DefaultValue="0"/>
 				<SCType ID="Y" Type="Double" DefaultValue="0"/>
 				<SCType ID="Z" Type="Double" DefaultValue="0"/>
@@ -43,7 +43,7 @@
 				<SCType ID="X" Type="Double" DefaultValue="0"/>
 				<SCType ID="Y" Type="Double" DefaultValue="0"/>
 				<SCType ID="Z" Type="Double" DefaultValue="0"/>
-			</SCType>
+			</SCType>-->
 		
 		</SCType>
 		
@@ -200,7 +200,7 @@
 						<SCType ID="WorkpieceBlock" Caption="WorkpieceBlock" Type="TMachineNode">
 							<Matrix>
 								<SCType ID="T1" Type="TTranslateZ" DefaultValue="[MachineDimensions.TablePos.TableToCrossPoint]"/>
-								<SCType ID="T2" Type="TRotateZ" DefaultValue="-90"/>
+								<SCType ID="T2" Type="TRotate" DefaultValue="-90"/>
 							</Matrix>
 							<SCType ID="Workpiece" Caption="Table Plate" Type="TWorkpieceHolderNode"/>
 						</SCType>
